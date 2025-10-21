@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /leistungen
+Allow: /innenausbau
+Allow: /malerarbeiten
+Allow: /trockenbau
+Allow: /parkettverlegung
+Allow: /sanierung
+Allow: /badsanierung
+Allow: /spachtelarbeiten
+Allow: /referenzen
+Allow: /ueber-uns
+Allow: /unser-ansatz
+Allow: /kontakt
+
+Sitemap: https://www.ipdomabau.de/sitemap.xml

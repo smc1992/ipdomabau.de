@@ -1,18 +1,7 @@
 {
-  "/_not-found": "app/_not-found.js",
   "/page": "app/page.js",
-  "/innenausbau/page": "app/innenausbau/page.js",
-  "/parkettverlegung/page": "app/parkettverlegung/page.js",
   "/referenzen/page": "app/referenzen/page.js",
-  "/unser-ansatz/page": "app/unser-ansatz/page.js",
-  "/ueber-uns/page": "app/ueber-uns/page.js",
-  "/datenschutz/page": "app/datenschutz/page.js",
-  "/impressum/page": "app/impressum/page.js",
-  "/kontakt/page": "app/kontakt/page.js",
-  "/leistungen/page": "app/leistungen/page.js",
-  "/badsanierung/page": "app/badsanierung/page.js",
-  "/malerarbeiten/page": "app/malerarbeiten/page.js",
   "/sanierung/page": "app/sanierung/page.js",
-  "/trockenbau/page": "app/trockenbau/page.js",
-  "/spachtelarbeiten/page": "app/spachtelarbeiten/page.js"
+  "/innenausbau/page": "app/innenausbau/page.js",
+  "/ueber-uns/page": "app/ueber-uns/page.js"
 }

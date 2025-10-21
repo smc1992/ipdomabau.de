@@ -43,7 +43,7 @@ export default function ApproachSection({ scrollY }: ApproachSectionProps) {
   });
   const [visibleSteps, setVisibleSteps] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>(new Array(steps.length).fill(null));
 
   useEffect(() => {
     const observer = new IntersectionObserver(

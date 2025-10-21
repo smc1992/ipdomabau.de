@@ -111,7 +111,11 @@ export default function SustainabilityMetrics({ scrollY }: SustainabilityMetrics
           {metrics.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              ref={el => itemRefs.current[categoryIndex] = el}
+              ref={(el) => {
+                if (itemRefs.current) {
+                  itemRefs.current[categoryIndex] = el;
+                }
+              }}
               className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-t-4 ${getColorClasses(category.color)} transition-all duration-700 transform hover:-translate-y-2 hover:shadow-2xl ${
                 visibleItems.includes(categoryIndex)
                   ? 'opacity-100 translate-y-0'
@@ -151,7 +155,11 @@ export default function SustainabilityMetrics({ scrollY }: SustainabilityMetrics
             {certificationStats.map((cert, index) => (
               <div
                 key={index}
-                ref={el => itemRefs.current[metrics.length + index] = el}
+                ref={(el) => {
+                  if (itemRefs.current) {
+                    itemRefs.current[metrics.length + index] = el;
+                  }
+                }}
                 className={`text-center p-4 sm:p-6 border-2 border-gray-200 rounded-xl hover:border-[#C04020] hover:shadow-lg transition-all duration-300 ${
                   visibleItems.includes(metrics.length + index)
                     ? 'opacity-100 translate-y-0'

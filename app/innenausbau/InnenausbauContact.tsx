@@ -2,8 +2,22 @@
 
 import { useState } from 'react';
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  roomType: string;
+  area: string;
+  budget: string;
+  timeline: string;
+  services: string[];
+  description: string;
+  address: string;
+}
+
 export default function InnenausbauContact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -45,7 +59,7 @@ export default function InnenausbauContact() {
     'Smart Home Integration'
   ];
 
-  const handleServiceChange = (service) => {
+  const handleServiceChange = (service: string) => {
     setFormData(prev => ({
       ...prev,
       services: prev.services.includes(service)
@@ -54,20 +68,24 @@ export default function InnenausbauContact() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('');
 
     try {
       const formDataToSubmit = new FormData();
-      Object.keys(formData).forEach(key => {
-        if (key === 'services') {
-          formDataToSubmit.append(key, formData[key].join(', '));
-        } else {
-          formDataToSubmit.append(key, formData[key]);
-        }
-      });
+      formDataToSubmit.append('name', formData.name);
+      formDataToSubmit.append('email', formData.email);
+      formDataToSubmit.append('phone', formData.phone);
+      formDataToSubmit.append('projectType', formData.projectType);
+      formDataToSubmit.append('roomType', formData.roomType);
+      formDataToSubmit.append('area', formData.area);
+      formDataToSubmit.append('budget', formData.budget);
+      formDataToSubmit.append('timeline', formData.timeline);
+      formDataToSubmit.append('services', formData.services.join(', '));
+      formDataToSubmit.append('description', formData.description);
+      formDataToSubmit.append('address', formData.address);
 
       const response = await fetch('https://readdy.ai/api/form/d3n38g1vbfpiajvfcgv0', {
         method: 'POST',

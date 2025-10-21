@@ -93,7 +93,11 @@ export default function ApproachSection({ scrollY }: ApproachSectionProps) {
             {steps.map((step, index) => (
               <div
                 key={index}
-                ref={el => stepRefs.current[index] = el}
+                ref={(el) => {
+                  if (stepRefs.current) {
+                    stepRefs.current[index] = el;
+                  }
+                }}
                 className={`relative transition-all duration-1000 ${ 
                   visibleSteps.includes(index)
                     ? 'opacity-100 translate-y-0'

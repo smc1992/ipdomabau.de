@@ -3,7 +3,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import emailjs from '@emailjs/browser';
 
 interface FormData {
   service: string;
@@ -109,32 +108,31 @@ export default function ContactFunnelOptimized() {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
+
     try {
-      // EmailJS Konfiguration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          projectType: formData.projectType,
+          service: formData.service,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          propertyType: formData.propertyType,
+          roomCount: formData.roomCount,
+          address: formData.address,
+          description: formData.description,
+        }),
+      });
 
-      // E-Mail-Parameter für EmailJS
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        projectType: formData.projectType,
-        propertyType: formData.propertyType,
-        roomCount: formData.roomCount,
-        address: formData.address,
-        description: formData.description,
-        to_email: 'info@ipdomabau.de',
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
-      setIsSubmitted(true);
+      if (response.ok) {
+        setIsSubmitted(true);
+      }
     } catch (error) {
       console.error('Fehler beim Senden:', error);
     } finally {

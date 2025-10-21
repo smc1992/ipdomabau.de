@@ -2,7 +2,6 @@
 'use client';
 
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -37,37 +36,37 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      // EmailJS Konfiguration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
-
-      // E-Mail-Parameter für EmailJS
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        projectType: formData.projectType,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        description: formData.description,
-        to_email: 'info@ipdomabau.de',
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        description: ''
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          description: formData.description,
+        }),
       });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          projectType: '',
+          budget: '',
+          timeline: '',
+          description: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
-      console.error('E-Mail Sende-Fehler:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

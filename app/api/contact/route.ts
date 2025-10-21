@@ -46,6 +46,11 @@ export async function POST(request: NextRequest) {
 
     // SMTP-Konfiguration validieren
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP-Konfiguration unvollständig:', {
+        hasHost: !!process.env.SMTP_HOST,
+        hasUser: !!process.env.SMTP_USER,
+        hasPass: !!process.env.SMTP_PASS
+      });
       return NextResponse.json(
         { error: 'SMTP-Konfiguration unvollständig. Bitte kontaktieren Sie den Administrator.' },
         { status: 500 }
@@ -63,15 +68,13 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Transporter verifizieren
+    // Transporter verifizieren (optional - bei manchen Hostern blockiert)
     try {
       await transporter.verify();
-    } catch (error) {
-      console.error('SMTP-Konfiguration Fehler:', error);
-      return NextResponse.json(
-        { error: 'E-Mail-Server-Konfiguration ist ungültig.' },
-        { status: 500 }
-      );
+      console.log('SMTP-Verbindung erfolgreich verifiziert');
+    } catch (verifyError) {
+      console.warn('SMTP-Verifizierung fehlgeschlagen, versuche trotzdem zu senden:', verifyError);
+      // Nicht blockieren, da einige SMTP-Server die Verifizierung blockieren
     }
 
     // E-Mail-Inhalt erstellen
@@ -118,7 +121,17 @@ export async function POST(request: NextRequest) {
     };
 
     // E-Mail senden
-    await transporter.sendMail(mailOptions);
+    try {
+      console.log('Versuche E-Mail zu senden an:', process.env.CONTACT_EMAIL);
+      const result = await transporter.sendMail(mailOptions);
+      console.log('E-Mail erfolgreich gesendet:', result.messageId);
+    } catch (sendError) {
+      console.error('E-Mail Sende-Fehler:', sendError);
+      return NextResponse.json(
+        { error: 'Fehler beim Senden der E-Mail. Bitte überprüfen Sie die SMTP-Konfiguration.' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { message: 'E-Mail erfolgreich gesendet!' },
@@ -126,9 +139,9 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('E-Mail Sende-Fehler:', error);
+    console.error('Unerwarteter API-Fehler:', error);
     return NextResponse.json(
-      { error: 'Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut.' },
+      { error: 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.' },
       { status: 500 }
     );
   }

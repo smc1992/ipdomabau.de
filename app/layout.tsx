@@ -5,6 +5,31 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
+import ErrorBoundary from "./components/ErrorBoundary";
+
+// ChunkLoadError Handler
+if (typeof window !== 'undefined') {
+  window.addEventListener('error', (event) => {
+    if (event.error && (
+      event.error.name === 'ChunkLoadError' ||
+      event.error.message.includes('Loading chunk') ||
+      event.error.message.includes('ChunkLoadError')
+    )) {
+      // Seite neu laden bei ChunkLoad-Fehlern
+      window.location.reload();
+    }
+  });
+
+  // Unhandled Promise Rejections für Chunk-Fehler
+  window.addEventListener('unhandledrejection', (event) => {
+    if (event.reason && (
+      event.reason.name === 'ChunkLoadError' ||
+      event.reason.message?.includes('Loading chunk')
+    )) {
+      window.location.reload();
+    }
+  });
+}
 
 export const metadata: Metadata = {
   title: "DOMABAU - Meisterbetrieb für Bau, Ausbau und Renovierung in München",
@@ -149,12 +174,14 @@ export default function RootLayout({
       <body
         className="antialiased font-montserrat"
       >
-        <Header />
-        <main className="pt-20">
-          {children}
-        </main>
-        <Footer />
-        <CookieBanner />
+        <ErrorBoundary>
+          <Header />
+          <main className="pt-20">
+            {children}
+          </main>
+          <Footer />
+          <CookieBanner />
+        </ErrorBoundary>
       </body>
     </html>
   );

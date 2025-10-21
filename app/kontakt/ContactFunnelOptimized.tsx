@@ -110,24 +110,24 @@ export default function ContactFunnelOptimized() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://readdy.ai/api/form/submit/domabau-kontakt-funnel', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: new URLSearchParams({
-          service: formData.service,
-          budget: formData.budget,
-          timeline: formData.timeline,
-          projectType: formData.projectType,
-          propertyType: formData.propertyType,
-          roomCount: formData.roomCount,
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          projectType: formData.projectType,
+          service: formData.service,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          propertyType: formData.propertyType,
+          roomCount: formData.roomCount,
           address: formData.address,
-          description: formData.description
-        }).toString()
+          description: formData.description,
+        }),
       });
 
       if (response.ok) {

@@ -57,16 +57,19 @@ export default function ContactSection() {
         formData.datenschutz ? 'Akzeptiert' : 'Nicht akzeptiert'
       );
 
-      const response = await fetch(
-        'https://readdy.ai/api/form/d3mgac2tokgsj2i80ln0',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: submitData.toString(),
-        }
-      );
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          anliegen: formData.anliegen,
+          message: formData.message,
+        }),
+      });
 
       if (response.ok) {
         setSubmitStatus(
@@ -192,7 +195,6 @@ export default function ContactSection() {
           <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-gray-100 backdrop-blur-sm">
             <form
               onSubmit={handleSubmit}
-              data-readdy-form
               id="kontakt-angebot"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">

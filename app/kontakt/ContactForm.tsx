@@ -36,12 +36,20 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://readdy.ai/api/form/contact-detailed-form', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: new URLSearchParams(formData).toString(),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          description: formData.description,
+        }),
       });
 
       if (response.ok) {
@@ -87,7 +95,7 @@ export default function ContactForm() {
               <p className="text-gray-600">Wir haben Ihre Nachricht erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
             </div>
           ) : (
-            <form id="get-started-form" onSubmit={handleSubmit} className="space-y-6" data-readdy-form>
+            <form id="get-started-form" onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">

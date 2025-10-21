@@ -1,20 +1,20 @@
 {
+  "/api/contact/route": "app/api/contact/route.js",
   "/_not-found": "app/_not-found.js",
   "/api/test/route": "app/api/test/route.js",
-  "/parkettverlegung/page": "app/parkettverlegung/page.js",
   "/innenausbau/page": "app/innenausbau/page.js",
-  "/api/contact/route": "app/api/contact/route.js",
   "/page": "app/page.js",
+  "/parkettverlegung/page": "app/parkettverlegung/page.js",
   "/referenzen/page": "app/referenzen/page.js",
   "/unser-ansatz/page": "app/unser-ansatz/page.js",
   "/ueber-uns/page": "app/ueber-uns/page.js",
   "/kontakt/page": "app/kontakt/page.js",
-  "/datenschutz/page": "app/datenschutz/page.js",
-  "/malerarbeiten/page": "app/malerarbeiten/page.js",
-  "/badsanierung/page": "app/badsanierung/page.js",
-  "/leistungen/page": "app/leistungen/page.js",
   "/impressum/page": "app/impressum/page.js",
+  "/datenschutz/page": "app/datenschutz/page.js",
+  "/badsanierung/page": "app/badsanierung/page.js",
+  "/malerarbeiten/page": "app/malerarbeiten/page.js",
   "/trockenbau/page": "app/trockenbau/page.js",
-  "/spachtelarbeiten/page": "app/spachtelarbeiten/page.js",
-  "/sanierung/page": "app/sanierung/page.js"
+  "/leistungen/page": "app/leistungen/page.js",
+  "/sanierung/page": "app/sanierung/page.js",
+  "/spachtelarbeiten/page": "app/spachtelarbeiten/page.js"
 }

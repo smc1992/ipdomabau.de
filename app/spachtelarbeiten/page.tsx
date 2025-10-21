@@ -4,7 +4,6 @@ import SpachtelHero from './SpachtelHero';
 import SpachtelTechniques from './SpachtelTechniques';
 import SpachtelProcess from './SpachtelProcess';
 import SpachtelBenefits from './SpachtelBenefits';
-import SpachtelContact from './SpachtelContact';
 
 export const metadata: Metadata = {
   title: "Spachtelarbeiten München - Q1 bis Q4 Qualität | DOMABAU Meisterbetrieb",
@@ -157,7 +156,6 @@ export default function SpachtelarbeitenPage() {
       <SpachtelTechniques />
       <SpachtelBenefits />
       <SpachtelProcess />
-      <SpachtelContact />
     </>
   );
 }

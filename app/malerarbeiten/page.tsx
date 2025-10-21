@@ -4,7 +4,6 @@ import MalerServices from './MalerServices';
 import MalerProcess from './MalerProcess';
 import MalerBenefits from './MalerBenefits';
 import MalerProjects from './MalerProjects';
-import MalerContact from './MalerContact';
 
 export const metadata = {
   title: 'Malerarbeiten München & Umgebung | Professioneller Malerbetrieb',
@@ -20,7 +19,6 @@ export default function MalerarbeitenPage() {
       <MalerProjects />
       <MalerProcess />
       <MalerBenefits />
-      <MalerContact />
     </>
   );
 }

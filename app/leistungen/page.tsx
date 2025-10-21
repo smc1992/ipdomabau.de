@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import ServicesHero from './ServicesHero';
 import ServiceDetails from './ServiceDetails';
 import ServiceProcess from './ServiceProcess';
-import ServiceContact from './ServiceContact';
 
 export const metadata: Metadata = {
   title: "Leistungen - Alle Bauleistungen im Überblick | DOMABAU München",
@@ -67,7 +66,6 @@ export default function ServicesPage() {
       <ServicesHero />
       <ServiceDetails />
       <ServiceProcess />
-      <ServiceContact />
     </>
   );
 }

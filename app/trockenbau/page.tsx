@@ -4,7 +4,6 @@ import TrockenbauHero from './TrockenbauHero';
 import TrockenbauServices from './TrockenbauServices';
 import TrockenbauProcess from './TrockenbauProcess';
 import TrockenbauBenefits from './TrockenbauBenefits';
-import TrockenbauContact from './TrockenbauContact';
 
 export const metadata: Metadata = {
   title: 'Trockenbau München - Professionelle Trockenbaulösungen | DOMABAU',
@@ -18,7 +17,6 @@ export default function TrockenbauPage() {
       <TrockenbauServices />
       <TrockenbauProcess />
       <TrockenbauBenefits />
-      <TrockenbauContact />
     </>
   );
 }

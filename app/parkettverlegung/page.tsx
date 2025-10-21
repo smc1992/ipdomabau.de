@@ -4,7 +4,6 @@ import ParquetServices from './ParquetServices';
 import ParquetBenefits from './ParquetBenefits';
 import ParquetProcess from './ParquetProcess';
 import ParquetProjects from './ParquetProjects';
-import ParquetContact from './ParquetContact';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -46,7 +45,6 @@ export default function ParkettverlegungPage() {
       <ParquetBenefits />
       <ParquetProcess />
       <ParquetProjects />
-      <ParquetContact />
     </>
   );
 }

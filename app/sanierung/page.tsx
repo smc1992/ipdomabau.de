@@ -5,7 +5,6 @@ import SanierungServices from './SanierungServices';
 import SanierungProcess from './SanierungProcess';
 import SanierungBenefits from './SanierungBenefits';
 import SanierungProjects from './SanierungProjects';
-import SanierungContact from './SanierungContact';
 
 export const metadata: Metadata = {
   title: "Sanierung München - Komplettsanierung vom Meisterbetrieb | DOMABAU",
@@ -55,7 +54,6 @@ export default function SanierungPage() {
       <SanierungProcess />
       <SanierungBenefits />
       <SanierungProjects />
-      <SanierungContact />
     </>
   );
 }

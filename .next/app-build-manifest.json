@@ -1,125 +1,129 @@
 {
   "pages": {
     "/not-found": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/not-found-cf9299e0f107dc32.js"
+      "static/chunks/app/not-found-58f1a39fbffc3135.js"
     ],
     "/layout": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/layout-2bbe5f6ed8ba3041.js"
+      "static/chunks/326-977be14033cc007e.js",
+      "static/chunks/983-5b39f519b886f71d.js",
+      "static/css/00b06d23025d16d1.css",
+      "static/chunks/app/layout-b62252491efe23bb.js"
     ],
     "/innenausbau/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/326-977be14033cc007e.js",
       "static/chunks/app/innenausbau/page-407c00cbe6cd9725.js"
     ],
-    "/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
-      "static/chunks/fd9d1056-6938ea2e777f3482.js",
-      "static/chunks/472-178fcfcaa1a8d393.js",
-      "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/page-884536a67df874a5.js"
-    ],
     "/parkettverlegung/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/app/parkettverlegung/page-5e7be304a6e2e661.js"
     ],
     "/referenzen/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/app/referenzen/page-877c50deb464f7e4.js"
     ],
-    "/unser-ansatz/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+    "/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/unser-ansatz/page-41f9017170b0ad86.js"
+      "static/chunks/326-977be14033cc007e.js",
+      "static/chunks/app/page-a88ae5b2d237d7e1.js"
     ],
     "/ueber-uns/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/326-977be14033cc007e.js",
       "static/chunks/app/ueber-uns/page-eded1f5251646a14.js"
     ],
+    "/unser-ansatz/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
+      "static/chunks/fd9d1056-6938ea2e777f3482.js",
+      "static/chunks/472-178fcfcaa1a8d393.js",
+      "static/chunks/main-app-a64107d0fbc9bb7c.js",
+      "static/chunks/app/unser-ansatz/page-a617ddea579638c9.js"
+    ],
     "/kontakt/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/326-977be14033cc007e.js",
       "static/chunks/app/kontakt/page-60133f11eb663639.js"
     ],
-    "/impressum/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+    "/malerarbeiten/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/impressum/page-7c029c9bf8287842.js"
-    ],
-    "/datenschutz/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
-      "static/chunks/fd9d1056-6938ea2e777f3482.js",
-      "static/chunks/472-178fcfcaa1a8d393.js",
-      "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/326-977be14033cc007e.js",
-      "static/chunks/app/datenschutz/page-d50db50a7daebd09.js"
+      "static/chunks/app/malerarbeiten/page-9a09c1d931d34820.js"
     ],
     "/badsanierung/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/326-977be14033cc007e.js",
       "static/chunks/app/badsanierung/page-c88261b85e5d4475.js"
     ],
-    "/malerarbeiten/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
-      "static/chunks/fd9d1056-6938ea2e777f3482.js",
-      "static/chunks/472-178fcfcaa1a8d393.js",
-      "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/malerarbeiten/page-9a09c1d931d34820.js"
-    ],
-    "/trockenbau/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
-      "static/chunks/fd9d1056-6938ea2e777f3482.js",
-      "static/chunks/472-178fcfcaa1a8d393.js",
-      "static/chunks/main-app-a64107d0fbc9bb7c.js",
-      "static/chunks/app/trockenbau/page-498472631f4edf1d.js"
-    ],
     "/leistungen/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/326-977be14033cc007e.js",
       "static/chunks/app/leistungen/page-4081b5dd77bccd7c.js"
     ],
+    "/trockenbau/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
+      "static/chunks/fd9d1056-6938ea2e777f3482.js",
+      "static/chunks/472-178fcfcaa1a8d393.js",
+      "static/chunks/main-app-a64107d0fbc9bb7c.js",
+      "static/chunks/app/trockenbau/page-498472631f4edf1d.js"
+    ],
+    "/impressum/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
+      "static/chunks/fd9d1056-6938ea2e777f3482.js",
+      "static/chunks/472-178fcfcaa1a8d393.js",
+      "static/chunks/main-app-a64107d0fbc9bb7c.js",
+      "static/chunks/app/impressum/page-5d79cc26fd60fa7f.js"
+    ],
     "/sanierung/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",
       "static/chunks/app/sanierung/page-5a6d0861225c9059.js"
     ],
+    "/datenschutz/page": [
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
+      "static/chunks/fd9d1056-6938ea2e777f3482.js",
+      "static/chunks/472-178fcfcaa1a8d393.js",
+      "static/chunks/main-app-a64107d0fbc9bb7c.js",
+      "static/chunks/326-977be14033cc007e.js",
+      "static/chunks/app/datenschutz/page-d50db50a7daebd09.js"
+    ],
     "/spachtelarbeiten/page": [
-      "static/chunks/webpack-5e9bedb58c3695d7.js",
+      "static/chunks/webpack-9a8a064e560b3ffc.js",
       "static/chunks/fd9d1056-6938ea2e777f3482.js",
       "static/chunks/472-178fcfcaa1a8d393.js",
       "static/chunks/main-app-a64107d0fbc9bb7c.js",

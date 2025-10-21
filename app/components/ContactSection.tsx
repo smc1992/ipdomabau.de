@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -46,50 +47,36 @@ export default function ContactSection() {
     setSubmitStatus('');
 
     try {
-      const submitData = new URLSearchParams();
-      submitData.append('name', formData.name);
-      submitData.append('phone', formData.phone);
-      submitData.append('email', formData.email);
-      submitData.append('anliegen', formData.anliegen);
-      submitData.append('message', formData.message);
-      submitData.append(
-        'datenschutz',
-        formData.datenschutz ? 'Akzeptiert' : 'Nicht akzeptiert'
+      // EmailJS Konfiguration
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
+
+      // E-Mail-Parameter für EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        anliegen: formData.anliegen,
+        message: formData.message,
+        to_email: 'info@ipdomabau.de',
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setSubmitStatus(
+        'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.'
       );
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          anliegen: formData.anliegen,
-          message: formData.message,
-        }),
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        anliegen: '',
+        message: '',
+        datenschutz: false,
       });
-
-      if (response.ok) {
-        setSubmitStatus(
-          'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.'
-        );
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          anliegen: '',
-          message: '',
-          datenschutz: false,
-        });
-      } else {
-        setSubmitStatus(
-          'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut.'
-        );
-      }
     } catch (error) {
-      console.error('Submit error:', error);
+      console.error('E-Mail Sende-Fehler:', error);
       setSubmitStatus(
         'Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut.'
       );

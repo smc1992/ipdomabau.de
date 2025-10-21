@@ -28,6 +28,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Prüfen ob CONTACT_EMAIL gesetzt ist
+    if (!process.env.CONTACT_EMAIL) {
+      return NextResponse.json(
+        { error: 'E-Mail-Konfiguration fehlt. Bitte kontaktieren Sie den Administrator.' },
+        { status: 500 }
+      );
+    }
+
     // Mindestens eine Art von Nachricht erforderlich
     if (!message && !description) {
       return NextResponse.json(
@@ -36,9 +44,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // SMTP-Konfiguration validieren
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      return NextResponse.json(
+        { error: 'SMTP-Konfiguration unvollständig. Bitte kontaktieren Sie den Administrator.' },
+        { status: 500 }
+      );
+    }
+
     // E-Mail-Transporter konfigurieren
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: false, // true für 465, false für andere Ports
       auth: {
@@ -47,10 +63,21 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Transporter verifizieren
+    try {
+      await transporter.verify();
+    } catch (error) {
+      console.error('SMTP-Konfiguration Fehler:', error);
+      return NextResponse.json(
+        { error: 'E-Mail-Server-Konfiguration ist ungültig.' },
+        { status: 500 }
+      );
+    }
+
     // E-Mail-Inhalt erstellen
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: process.env.CONTACT_EMAIL || 'info@ipdombabau.de',
+      to: process.env.CONTACT_EMAIL,
       subject: `Neue Kontaktanfrage von ${name} - ${anliegen || service || projectType || 'Allgemein'}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

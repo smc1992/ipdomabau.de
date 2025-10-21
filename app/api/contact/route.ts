@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     // E-Mail-Inhalt erstellen
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: process.env.CONTACT_EMAIL || 'info@ipdomabau.de',
+      to: process.env.CONTACT_EMAIL || 'info@ipdombabau.de',
       subject: `Neue Kontaktanfrage von ${name} - ${anliegen || service || projectType || 'Allgemein'}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

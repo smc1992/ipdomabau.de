@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 interface FormData {
@@ -36,6 +36,18 @@ export default function ContactFunnelOptimized() {
     address: '',
     description: ''
   });
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll nach oben bei Schritt-Wechsel
+  useEffect(() => {
+    if (contentRef.current) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentStep]);
 
   const services = [
     { id: 'malerarbeiten', name: 'Malerarbeiten', icon: 'ri-brush-line', description: 'Professionelle Malerarbeiten für Innen und Außen' },
@@ -201,7 +213,7 @@ export default function ContactFunnelOptimized() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div ref={contentRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Navigation Header */}
       <div className="bg-white border-b border-gray-200 px-4 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">

@@ -132,7 +132,7 @@ export default function ServicesSection() {
         <div className="text-center mt-8 sm:mt-12">
           <Link
             href="/leistungen"
-            className="inline-block bg-[#C04020] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold hover:bg-[#A03318] transition-colors whitespace-nowrap cursor-pointer"
+            className="inline-block bg-[#C04020] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold hover:bg-[#A03318] transition-colors whitespace-nowrap cursor-pointer rounded-xl"
           >
             Alle Leistungen ansehen
           </Link>

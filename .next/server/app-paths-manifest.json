@@ -1,12 +1,7 @@
 {
-  "/ueber-uns/page": "app/ueber-uns/page.js",
   "/innenausbau/page": "app/innenausbau/page.js",
   "/referenzen/page": "app/referenzen/page.js",
-  "/page": "app/page.js",
   "/sanierung/page": "app/sanierung/page.js",
-  "/parkettverlegung/page": "app/parkettverlegung/page.js",
-  "/malerarbeiten/page": "app/malerarbeiten/page.js",
-  "/trockenbau/page": "app/trockenbau/page.js",
-  "/spachtelarbeiten/page": "app/spachtelarbeiten/page.js",
-  "/badsanierung/page": "app/badsanierung/page.js"
+  "/page": "app/page.js",
+  "/ueber-uns/page": "app/ueber-uns/page.js"
 }
